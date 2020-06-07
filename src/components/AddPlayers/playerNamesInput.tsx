@@ -2,8 +2,8 @@ import * as React from "react";
 import { AppContext } from "../../store";
 import { player } from "../../Reducer";
 
-type PlayerNamesProps = {};
-export const PlayerNames: React.FunctionComponent<PlayerNamesProps> = (
+type PlayerNamesInputProps = {};
+export const PlayerNamesInput: React.FunctionComponent<PlayerNamesInputProps> = (
   props
 ) => {
   const { state, dispatch } = React.useContext(AppContext);

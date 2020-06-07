@@ -2,15 +2,15 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { AddPlayerMain } from "./components/AddPlayers/main";
-import { PlayerNames } from "./components/AddPlayers/playerNames";
-import Store, { AppContext } from "./store";
+import Store from "./store";
+import { Quiz } from "./components/Quiz/main";
 
 function App() {
   return (
     <div className="App">
       <Store>
         <AddPlayerMain />
-        <PlayerNames />
+        <Quiz />
       </Store>
     </div>
   );
