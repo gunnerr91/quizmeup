@@ -13,7 +13,7 @@ export const PlayerNamesInput: React.FunctionComponent<PlayerNamesInputProps> = 
     let namesInList = names.split("," || " ");
     let players: player[] = [];
     namesInList.forEach((name) => {
-      players.push({ name });
+      players.push({ name, score: 0 });
       console.log(name);
     });
     dispatch({ type: "ADD_PLAYERS", payload: players });

@@ -2,7 +2,10 @@ import React, { createContext, useReducer, Dispatch } from "react";
 import Reducer, { AppState, AppActions } from "./Reducer";
 
 const initialState: AppState = {
-  players: []
+  players: [],
+  currentQuestionAnswered: false,
+  currentQuestionIndex: 0,
+  questions: []
 };
 
 interface AppContextProps {

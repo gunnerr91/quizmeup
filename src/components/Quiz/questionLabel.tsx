@@ -13,5 +13,11 @@ export type QuizQuestion = {
 export const QuestionLabel: React.FunctionComponent<QuestionLabelProps> = (
   props
 ) => {
-  return <h3>{props.questions[props.currentQuestionIndex].question}</h3>;
+  return (
+    <h3>
+      {props.questions.length > 0
+        ? props.questions[props.currentQuestionIndex].question
+        : "no questions available"}
+    </h3>
+  );
 };

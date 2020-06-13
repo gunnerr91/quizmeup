@@ -8,8 +8,14 @@ export const PlayerAnswer: React.FunctionComponent<PlayerAnswerProps> = (
   props
 ) => {
   const { state, dispatch } = React.useContext(AppContext);
-  console.log("player ansmwers about to be generated");
-  console.log(state?.players);
+  if (state?.players) {
+    state?.players.forEach((player) => {
+      console.log(
+        `players answers:\n${player.name}, ${player.answerToCurrentQuestion}`
+      );
+    });
+    console.log(state?.players[0].score);
+  }
   return (
     <>
       {state?.players && state.players.length > 0 ? (
@@ -18,15 +24,15 @@ export const PlayerAnswer: React.FunctionComponent<PlayerAnswerProps> = (
             <div key={index}>
               <label>{player.name}</label>
               <input
-                onChange={(event) =>
+                onChange={(event) => {
+                  let updatedPlayer = (state.players[
+                    index
+                  ].answerToCurrentQuestion = event.target.value);
                   dispatch({
-                    type: "Add_PLAYER_ANSWER_TO_CURRENT_QUESTION",
-                    payload: {
-                      answerToCurrentQuestion: event.target.value,
-                      currentPlayerIndex: index
-                    } as CurrentQuestionAnswer
-                  })
-                }
+                    type: "UPDATE_PLAYER",
+                    payload: updatedPlayer
+                  });
+                }}
                 type="text"
               />
             </div>
